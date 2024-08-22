@@ -1,15 +1,16 @@
 const menu = require("../commands/menu");
-const CreateButtons = require("../modules/createButtons")
+const CreateMenu = require("../modules/createMenu")
 
 module.exports = {
   name: "interactionCreate",
   async execute(interaction) {
+    console.log()
     const role = menu.roles.find(
-      (value) => value["id"].toString() === interaction["customId"]
+      (value) => value["id"].toString() === interaction["values"][0]
     );
 
-    const buttons = await CreateButtons(menu.roles)
-    await interaction.message.edit({ content: "Выберите роль", components: buttons })
+    const buttons = await CreateMenu(menu.roles)
+    await interaction.message.edit({ components: [buttons] })
     
     await interaction.reply({
         embeds: [{

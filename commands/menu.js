@@ -1,4 +1,4 @@
-const CreateButtons = require('../modules/createButtons')
+const CreateMenu = require('../modules/createMenu')
 
 module.exports = {
     name: 'menu',
@@ -16,7 +16,7 @@ module.exports = {
         {"id": 9, "name": "9 role", "description": "desc 9"},
     ],
     async execute(message) {
-        const row = await CreateButtons(this.roles)
-        await message.channel.send({ content: "Выберите роль", components: row });
+        const row = await CreateMenu(this.roles)
+        await message.channel.send({ components: [row] });
     },
 };
