@@ -1,7 +1,7 @@
 const CreateButtons = require('../modules/createButtons')
 
 module.exports = {
-    name: 'selector',
+    name: 'menu',
     description: 'Меню с кнопками',
     roles: [
         {"id": 0, "name": "0 role", "description": "desc 0"},
@@ -14,9 +14,8 @@ module.exports = {
         {"id": 7, "name": "7 role", "description": "desc 7"},
         {"id": 8, "name": "8 role", "description": "desc 8"},
         {"id": 9, "name": "9 role", "description": "desc 9"},
-        {"id": 10, "name": "10 role", "description": "desc 10"},
     ],
-    async execute(message, args) {
+    async execute(message) {
         const row = await CreateButtons(this.roles)
         await message.channel.send({ content: "Выберите роль", components: row });
     },
