@@ -4,7 +4,6 @@ const CreateMenu = require("../modules/createMenu")
 module.exports = {
   name: "interactionCreate",
   async execute(interaction) {
-    console.log()
     const role = menu.roles.find(
       (value) => value["id"].toString() === interaction["values"][0]
     );
